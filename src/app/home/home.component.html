@@ -1,0 +1,40 @@
+<div class="text-center mt-2 py-3" id="topbar">
+	<h1>Gamma Software - Test technique</h1>
+</div>
+<div class="container pt-4">
+	<input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+	<div class="file-upload">
+		<button type="button" color="primary" class="upload-btn" (click)="fileUpload.click()">
+			<i class="bi bi-paperclip"></i> {{ fileName || "Choisir le fichier à importer" }}
+		</button>
+		<button *ngIf="fileName" class="btn btn-primary mx-4" type="button" (click)="onSubmitFile()">Importer le fichier</button>
+	</div>
+	<h2 class="mt-4 text-center">Liste des groupes</h2>
+	<div class="mt-4">
+		<p class="text-center" *ngIf="groups.length === 0">Aucun groupe n'a encore été importé.</p>
+		<table class="table" *ngIf="groups.length > 0">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nom</th>
+					<th scope="col">Pays</th>
+					<th scope="col">Ville</th>
+					<th scope="col" width="25%"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let group of groups">
+					<th scope="row">{{ group.id }}</th>
+					<td>{{ group.name }}</td>
+					<td>{{ group.state }}</td>
+					<td>{{ group.city }}</td>
+					<td class="text-right">
+						<a [routerLink]="['/group', group.id]" class="px-4"><i class="bi bi-eye"></i></a>
+						<a [routerLink]="['/group-edit', group.id]" class="px-4"><i class="bi bi-pen"></i></a>
+						<a (click)="onDeleteGroup(group.id)" class="px-4"><i class="bi bi-trash"></i></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

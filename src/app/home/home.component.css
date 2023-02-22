@@ -1,0 +1,20 @@
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#topbar {
+	background-color: #F5F5F5;
+}
+
+.file-input {
+	display: none;
+}
+
+.upload-btn {
+	background-color: cornflowerblue;
+	color: white;
+	border: 0;
+	font-size: 20px;
+	padding: 10px 20px;
+	border-radius: 25px;
+}

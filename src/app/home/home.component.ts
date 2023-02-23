@@ -36,14 +36,10 @@ export class HomeComponent {
   }
 
   onSubmitFile() {
-    if (this.fileToUpload) {
-      this.fileUploadService.upload(this.fileToUpload).subscribe(
-        (event: any) => {
-          if (typeof (event) === 'object') {
-            window.location.reload();
-          }
-        }
-      );
+    if (this.fileToUpload && confirm("Etes-vous sûr de vouloir écraser les données par celles du fichier " + this.fileName + " ?" )) {
+      this.fileUploadService.upload(this.fileToUpload).then(() => {
+        window.location.reload();
+      });
     }
   }
 

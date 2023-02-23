@@ -16,7 +16,11 @@
 		<div class="card mt-4" *ngFor="let group of groups">
 			<div class="card-body">
 				<h5 class="card-title">{{ group.name }}</h5>
-				<h6 class="card-subtitle mb-2 text-muted">{{ group.state }}, {{ group.city }}</h6>
+				<h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-geo-alt"></i> {{ group.state }}, {{ group.city }}</h6>
+				<h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-calendar-check"></i> {{ group.startYear }} <span *ngIf="group.endYear"> - <i class="bi bi-calendar-x"></i> {{ group.endYear }}</span></h6>
+				<h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-person"></i> {{ group.founders }}</h6>
+				<h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-people"></i> {{ group.members }}</h6>
+				<h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-music-note"></i> {{ group.style }}</h6>
 				<p class="card-text">{{ group.presentation }}</p>
 				<a [routerLink]="['/group-edit', group.id]" class="btn btn-primary card-link"><i class="bi bi-pen px-2"></i>Modifier</a>
 				<a (click)="onDeleteGroup(group.id)" class="btn btn-danger card-link"><i class="bi bi-trash px-2"></i>Supprimer</a>

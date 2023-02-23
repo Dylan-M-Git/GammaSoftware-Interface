@@ -13,7 +13,7 @@ export class FileUploadService {
   upload(file: File): Promise<any> {
     return new Promise((resolve, reject) => {
       this.decodeXLSXAndFormatToJson(file).then(formattedJson => {
-        this.httpClient.post("http://127.0.0.1:8000/groups", formattedJson).subscribe(
+        this.httpClient.post("http://localhost:8000/groups", formattedJson).subscribe(
           (response: any) => {
             if (typeof (response) === 'object') {
               resolve(true);
